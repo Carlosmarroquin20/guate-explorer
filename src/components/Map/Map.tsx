@@ -1,53 +1,71 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import type { Place } from '../../types';
+import { categoryIcons, getCategoryColor } from '../../utils/icons';
+import { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
-
-// Fix for default marker icon in Leaflet with bundlers
-const defaultIcon = new Icon({
-  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
+import './Map.css';
 
 interface MapProps {
   places: Place[];
+  selectedPlace: Place | null;
+  onPlaceSelect: (place: Place) => void;
 }
 
 // Guatemala center coordinates
 const GUATEMALA_CENTER: [number, number] = [15.5, -90.25];
 const DEFAULT_ZOOM = 7;
+const SELECTED_ZOOM = 10;
 
-export default function Map({ places }: MapProps) {
+function MapController({ selectedPlace }: { selectedPlace: Place | null }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (selectedPlace) {
+      map.flyTo(
+        [selectedPlace.coordinates.lat, selectedPlace.coordinates.lng],
+        SELECTED_ZOOM,
+        { duration: 1 }
+      );
+    }
+  }, [selectedPlace, map]);
+
+  return null;
+}
+
+export default function Map({ places, selectedPlace, onPlaceSelect }: MapProps) {
   return (
     <MapContainer
       center={GUATEMALA_CENTER}
       zoom={DEFAULT_ZOOM}
-      style={{ height: '100vh', width: '100%' }}
+      className="map-container"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <MapController selectedPlace={selectedPlace} />
       {places.map((place) => (
         <Marker
           key={place.id}
           position={[place.coordinates.lat, place.coordinates.lng]}
-          icon={defaultIcon}
+          icon={categoryIcons[place.category]}
+          eventHandlers={{
+            click: () => onPlaceSelect(place),
+          }}
         >
           <Popup>
-            <div>
-              <h3 style={{ margin: '0 0 8px 0' }}>{place.name}</h3>
-              <p style={{ margin: '0 0 4px 0', fontSize: '14px' }}>
-                {place.description}
-              </p>
-              <p style={{ margin: 0, fontSize: '12px', color: '#666' }}>
-                {place.department} · {place.category}
-              </p>
+            <div className="popup-content">
+              <h3 className="popup-title">{place.name}</h3>
+              <p className="popup-description">{place.description}</p>
+              <div className="popup-meta">
+                <span
+                  className="popup-category"
+                  style={{ backgroundColor: getCategoryColor(place.category) }}
+                >
+                  {place.category}
+                </span>
+                <span className="popup-department">{place.department}</span>
+              </div>
             </div>
           </Popup>
         </Marker>
