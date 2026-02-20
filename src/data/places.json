@@ -1,0 +1,68 @@
+[
+  {
+    "id": "tikal",
+    "name": "Tikal",
+    "description": "Ancient Mayan city and UNESCO World Heritage Site. One of the largest archaeological sites of pre-Columbian Maya civilization.",
+    "category": "archaeological",
+    "department": "Petén",
+    "coordinates": {
+      "lat": 17.222,
+      "lng": -89.623
+    }
+  },
+  {
+    "id": "atitlan",
+    "name": "Lago de Atitlán",
+    "description": "Stunning volcanic lake surrounded by three volcanoes and indigenous Mayan villages.",
+    "category": "lake",
+    "department": "Sololá",
+    "coordinates": {
+      "lat": 14.687,
+      "lng": -91.208
+    }
+  },
+  {
+    "id": "antigua",
+    "name": "Antigua Guatemala",
+    "description": "Former capital city, famous for its well-preserved Spanish colonial architecture and ruins.",
+    "category": "colonial",
+    "department": "Sacatepéquez",
+    "coordinates": {
+      "lat": 14.558,
+      "lng": -90.733
+    }
+  },
+  {
+    "id": "volcan-agua",
+    "name": "Volcán de Agua",
+    "description": "Stratovolcano near Antigua, popular for hiking with stunning views of the valley.",
+    "category": "volcano",
+    "department": "Sacatepéquez",
+    "coordinates": {
+      "lat": 14.465,
+      "lng": -90.743
+    }
+  },
+  {
+    "id": "semuc-champey",
+    "name": "Semuc Champey",
+    "description": "Natural limestone bridge with stepped turquoise pools, surrounded by lush jungle.",
+    "category": "nature",
+    "department": "Alta Verapaz",
+    "coordinates": {
+      "lat": 15.529,
+      "lng": -89.955
+    }
+  },
+  {
+    "id": "quirigua",
+    "name": "Quiriguá",
+    "description": "Archaeological site known for its impressive Mayan stelae and zoomorphs. UNESCO World Heritage Site.",
+    "category": "archaeological",
+    "department": "Izabal",
+    "coordinates": {
+      "lat": 15.27,
+      "lng": -89.04
+    }
+  }
+]

@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
 }

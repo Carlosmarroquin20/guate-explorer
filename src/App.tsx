@@ -1,9 +1,9 @@
+import Map from './components/Map/Map';
+import places from './data/places.json';
+import type { Place } from './types';
+
 function App() {
-  return (
-    <div>
-      <h1>Guate Explorer</h1>
-    </div>
-  );
+  return <Map places={places as Place[]} />;
 }
 
 export default App;
