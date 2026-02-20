@@ -31,6 +31,12 @@ export type Department =
   | 'Totonicapán'
   | 'Zacapa';
 
+export interface PlaceImage {
+  url: string;
+  alt: string;
+  attribution?: string;
+}
+
 export interface Place {
   id: string;
   name: string;
@@ -41,5 +47,5 @@ export interface Place {
     lat: number;
     lng: number;
   };
-  image?: string;
+  images: PlaceImage[];
 }

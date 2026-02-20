@@ -8,7 +8,34 @@
     "coordinates": {
       "lat": 17.222,
       "lng": -89.623
-    }
+    },
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tikal_mridge.jpg/1280px-Tikal_mridge.jpg",
+        "alt": "Tikal Temple I rising above the jungle",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tikal_Temple1_2006_08_11.JPG/800px-Tikal_Temple1_2006_08_11.JPG",
+        "alt": "Temple I (Temple of the Great Jaguar)",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Tikal_Temple_II.jpg/800px-Tikal_Temple_II.jpg",
+        "alt": "Temple II (Temple of the Masks)",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Tikal_-_Pyramid_-_Temple_of_the_Jaguar_Priest.jpg/1280px-Tikal_-_Pyramid_-_Temple_of_the_Jaguar_Priest.jpg",
+        "alt": "Temple of the Jaguar Priest",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Tikal_from_Temple_IV.jpg/1280px-Tikal_from_Temple_IV.jpg",
+        "alt": "View from Temple IV at sunrise",
+        "attribution": "Wikimedia Commons"
+      }
+    ]
   },
   {
     "id": "atitlan",
@@ -19,7 +46,34 @@
     "coordinates": {
       "lat": 14.687,
       "lng": -91.208
-    }
+    },
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Volcanoes_at_Lake_Atitlan.jpg/1280px-Volcanoes_at_Lake_Atitlan.jpg",
+        "alt": "Lake Atitlán with volcanoes in background",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/LakeAtitlan2009.JPG/1280px-LakeAtitlan2009.JPG",
+        "alt": "Panoramic view of Lake Atitlán",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Panajachel-2.jpg/1280px-Panajachel-2.jpg",
+        "alt": "View from Panajachel",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Atitlan_San_Pedro.jpg/1280px-Atitlan_San_Pedro.jpg",
+        "alt": "San Pedro La Laguna village",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Volc%C3%A1n_San_Pedro_-_Panajachel%2C_Guatemala.jpg/1280px-Volc%C3%A1n_San_Pedro_-_Panajachel%2C_Guatemala.jpg",
+        "alt": "San Pedro Volcano from Panajachel",
+        "attribution": "Wikimedia Commons"
+      }
+    ]
   },
   {
     "id": "antigua",
@@ -30,7 +84,34 @@
     "coordinates": {
       "lat": 14.558,
       "lng": -90.733
-    }
+    },
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Arco_de_Santa_Catalina.jpg/800px-Arco_de_Santa_Catalina.jpg",
+        "alt": "Santa Catalina Arch - iconic landmark",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Volcan_de_Agua_desde_Antigua_Guatemala.jpg/1280px-Volcan_de_Agua_desde_Antigua_Guatemala.jpg",
+        "alt": "Agua Volcano seen from Antigua",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/La_Merced_Church%2C_Antigua.jpg/800px-La_Merced_Church%2C_Antigua.jpg",
+        "alt": "La Merced Church facade",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Fuente_parque_central_Antigua_Guatemala.jpg/800px-Fuente_parque_central_Antigua_Guatemala.jpg",
+        "alt": "Central Park fountain",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Iglesia_de_San_Francisco_El_Grande_%28Antigua_Guatemala%29.jpg/800px-Iglesia_de_San_Francisco_El_Grande_%28Antigua_Guatemala%29.jpg",
+        "alt": "San Francisco Church ruins",
+        "attribution": "Wikimedia Commons"
+      }
+    ]
   },
   {
     "id": "volcan-agua",
@@ -41,7 +122,34 @@
     "coordinates": {
       "lat": 14.465,
       "lng": -90.743
-    }
+    },
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Volcan_de_Agua.jpg/1280px-Volcan_de_Agua.jpg",
+        "alt": "Agua Volcano full view",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Antigua_Guatemala_Volcan_Agua.jpg/1280px-Antigua_Guatemala_Volcan_Agua.jpg",
+        "alt": "Volcano from Antigua streets",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Guatemala_Volcan_de_Agua_2009.jpg/800px-Guatemala_Volcan_de_Agua_2009.jpg",
+        "alt": "Agua Volcano at sunset",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Volcan_de_agua_%282%29.JPG/800px-Volcan_de_agua_%282%29.JPG",
+        "alt": "Crater view from summit",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Volcan_de_Agua%2C_Guatemala.jpg/1280px-Volcan_de_Agua%2C_Guatemala.jpg",
+        "alt": "Volcano with clouds",
+        "attribution": "Wikimedia Commons"
+      }
+    ]
   },
   {
     "id": "semuc-champey",
@@ -52,7 +160,34 @@
     "coordinates": {
       "lat": 15.529,
       "lng": -89.955
-    }
+    },
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Semuc_Champey_2.jpg/1280px-Semuc_Champey_2.jpg",
+        "alt": "Turquoise pools of Semuc Champey",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Semuc_Champey_3.jpg/1280px-Semuc_Champey_3.jpg",
+        "alt": "Aerial view of the pools",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Semuc_Champey_Guatemala.jpg/1280px-Semuc_Champey_Guatemala.jpg",
+        "alt": "Swimming in the natural pools",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Semuc_champey_desde_el_mirador.jpg/1280px-Semuc_champey_desde_el_mirador.jpg",
+        "alt": "View from the mirador",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Semuc_Champey%2C_Guatemala_%282%29.jpg/1280px-Semuc_Champey%2C_Guatemala_%282%29.jpg",
+        "alt": "Jungle surrounding the pools",
+        "attribution": "Wikimedia Commons"
+      }
+    ]
   },
   {
     "id": "quirigua",
@@ -63,6 +198,33 @@
     "coordinates": {
       "lat": 15.27,
       "lng": -89.04
-    }
+    },
+    "images": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Quirigua_Stela_E.jpg/600px-Quirigua_Stela_E.jpg",
+        "alt": "Stela E - tallest Mayan stela",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Quirigua_Great_Plaza.jpg/1280px-Quirigua_Great_Plaza.jpg",
+        "alt": "The Great Plaza",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Quirigua_Zoomorph_B.jpg/1280px-Quirigua_Zoomorph_B.jpg",
+        "alt": "Zoomorph B carved stone",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Stela_D_Quirigu%C3%A1.jpg/600px-Stela_D_Quirigu%C3%A1.jpg",
+        "alt": "Stela D with hieroglyphics",
+        "attribution": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Quirigua_-_Altar_Zoomorfo_P.jpg/1280px-Quirigua_-_Altar_Zoomorfo_P.jpg",
+        "alt": "Zoomorph P altar",
+        "attribution": "Wikimedia Commons"
+      }
+    ]
   }
 ]

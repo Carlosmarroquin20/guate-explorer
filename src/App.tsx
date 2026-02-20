@@ -14,12 +14,17 @@ function App() {
     setSelectedPlace(place);
   };
 
+  const handlePlaceDeselect = () => {
+    setSelectedPlace(null);
+  };
+
   return (
     <div className="app">
       <Sidebar
         places={typedPlaces}
         selectedPlace={selectedPlace}
         onPlaceSelect={handlePlaceSelect}
+        onPlaceDeselect={handlePlaceDeselect}
       />
       <main className="map-wrapper">
         <Map
