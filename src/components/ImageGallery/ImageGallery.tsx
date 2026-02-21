@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useWikimediaImages } from '../../hooks/useWikimediaImages';
 import './ImageGallery.css';
 
@@ -7,11 +8,11 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ query }: ImageGalleryProps) {
+  const { t } = useTranslation();
   const { images, loading, error } = useWikimediaImages(query, 5);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imgLoading, setImgLoading] = useState(true);
 
-  // Reset to first image when place changes
   useEffect(() => {
     setCurrentIndex(0);
     setImgLoading(true);
@@ -31,7 +32,7 @@ export default function ImageGallery({ query }: ImageGalleryProps) {
     return (
       <div className="gallery-placeholder">
         <div className="loader-spinner" />
-        <p>Loading photos…</p>
+        <p>{t('gallery.loading')}</p>
       </div>
     );
   }
@@ -40,7 +41,7 @@ export default function ImageGallery({ query }: ImageGalleryProps) {
     return (
       <div className="gallery-placeholder">
         <span className="gallery-placeholder-icon">🏔️</span>
-        <p>No photos available</p>
+        <p>{t('gallery.noPhotos')}</p>
       </div>
     );
   }
@@ -69,14 +70,14 @@ export default function ImageGallery({ query }: ImageGalleryProps) {
             <button
               className="gallery-nav gallery-nav-prev"
               onClick={goToPrevious}
-              aria-label="Previous image"
+              aria-label={t('gallery.prevImage')}
             >
               ‹
             </button>
             <button
               className="gallery-nav gallery-nav-next"
               onClick={goToNext}
-              aria-label="Next image"
+              aria-label={t('gallery.nextImage')}
             >
               ›
             </button>
@@ -96,9 +97,9 @@ export default function ImageGallery({ query }: ImageGalleryProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="gallery-source-link"
-            title="View on Wikimedia Commons"
+            title={t('gallery.viewOnWikimedia')}
           >
-            © Wikimedia
+            {t('gallery.wikimediaLink')}
           </a>
         )}
       </div>

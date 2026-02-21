@@ -1,0 +1,16 @@
+{
+  "sidebar": {
+    "subtitle": "Discover Guatemala's wonders",
+    "placesCount": "{{count}} places to explore",
+    "backToList": "← Back to list",
+    "footer": "Made with ❤️ for Guatemala"
+  },
+  "gallery": {
+    "loading": "Loading photos…",
+    "noPhotos": "No photos available",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "viewOnWikimedia": "View on Wikimedia Commons",
+    "wikimediaLink": "© Wikimedia"
+  }
+}
