@@ -35,6 +35,7 @@ export interface PlaceImage {
   url: string;
   alt: string;
   attribution?: string;
+  sourceUrl?: string;
 }
 
 export interface Place {
@@ -47,5 +48,5 @@ export interface Place {
     lat: number;
     lng: number;
   };
-  images: PlaceImage[];
+  wikimediaQuery: string;
 }

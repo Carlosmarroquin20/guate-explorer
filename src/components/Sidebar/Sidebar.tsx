@@ -46,7 +46,7 @@ export default function Sidebar({
               </div>
             </div>
 
-            <ImageGallery images={selectedPlace.images} />
+            <ImageGallery query={selectedPlace.wikimediaQuery} />
 
             <div className="detail-info">
               <span
