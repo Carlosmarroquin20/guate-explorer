@@ -28,12 +28,12 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 8px;
-  color: #1a1a2e;
+  color: var(--popup-text, #1a1a2e);
 }
 
 .popup-description {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--popup-desc, #555);
   margin: 0 0 12px;
   line-height: 1.5;
 }
@@ -56,5 +56,5 @@
 
 .popup-department {
   font-size: 0.8rem;
-  color: #888;
+  color: var(--popup-meta, #888);
 }

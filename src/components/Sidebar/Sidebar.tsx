@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import type { Place } from '../../types';
 import { getCategoryColor, getCategoryIcon } from '../../utils/icons';
+import { useTheme } from '../../context/ThemeContext';
 import ImageGallery from '../ImageGallery/ImageGallery';
+import i18n from '../../i18n';
 import './Sidebar.css';
 
 interface SidebarProps {
@@ -10,27 +13,55 @@ interface SidebarProps {
   onPlaceDeselect: () => void;
 }
 
+function toggleLanguage() {
+  const next = i18n.language === 'es' ? 'en' : 'es';
+  i18n.changeLanguage(next);
+  localStorage.setItem('lang', next);
+}
+
 export default function Sidebar({
   places,
   selectedPlace,
   onPlaceSelect,
   onPlaceDeselect,
 }: SidebarProps) {
+  const { t } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <h1 className="sidebar-title">
-          <span className="sidebar-logo">🇬🇹</span>
-          Guate Explorer
-        </h1>
-        <p className="sidebar-subtitle">Discover Guatemala's wonders</p>
+        <div className="sidebar-header-text">
+          <h1 className="sidebar-title">
+            <span className="sidebar-logo">🇬🇹</span>
+            Guate Explorer
+          </h1>
+          <p className="sidebar-subtitle">{t('sidebar.subtitle')}</p>
+        </div>
+
+        <div className="sidebar-controls">
+          <button
+            className="control-btn"
+            onClick={toggleTheme}
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+          <button
+            className="control-btn lang-btn"
+            onClick={toggleLanguage}
+            title="Change language"
+          >
+            {i18n.language === 'es' ? 'EN' : 'ES'}
+          </button>
+        </div>
       </div>
 
       <div className="sidebar-content">
         {selectedPlace ? (
           <div className="place-detail">
             <button className="back-button" onClick={onPlaceDeselect}>
-              ← Back to list
+              {t('sidebar.backToList')}
             </button>
 
             <div className="detail-header">
@@ -60,7 +91,9 @@ export default function Sidebar({
           </div>
         ) : (
           <>
-            <div className="places-count">{places.length} places to explore</div>
+            <div className="places-count">
+              {t('sidebar.placesCount', { count: places.length })}
+            </div>
 
             <ul className="places-list">
               {places.map((place) => (
@@ -89,7 +122,7 @@ export default function Sidebar({
       </div>
 
       <div className="sidebar-footer">
-        <span>Made with ❤️ for Guatemala</span>
+        <span>{t('sidebar.footer')}</span>
       </div>
     </aside>
   );

@@ -1,5 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* ─── Theme Variables ─── */
+[data-theme='dark'] {
+  --bg-sidebar: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  --bg-sidebar-header: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --bg-card-hover: rgba(255, 255, 255, 0.10);
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-faint: rgba(255, 255, 255, 0.4);
+  --text-dim: rgba(255, 255, 255, 0.5);
+  --text-soft: rgba(255, 255, 255, 0.7);
+  --text-body: rgba(255, 255, 255, 0.8);
+  --accent: #0ea5e9;
+  --accent-hover: #38bdf8;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+  --gallery-bg: rgba(0, 0, 0, 0.3);
+  --gallery-placeholder-bg: rgba(0, 0, 0, 0.2);
+  --border-header: rgba(255, 255, 255, 0.1);
+  --border-footer: rgba(255, 255, 255, 0.1);
+  --bg-selected-card: rgba(14, 165, 233, 0.2);
+}
+
+[data-theme='light'] {
+  --bg-sidebar: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  --bg-sidebar-header: linear-gradient(135deg, #dbeafe 0%, #e2e8f0 100%);
+  --bg-card: rgba(0, 0, 0, 0.04);
+  --border-card: rgba(0, 0, 0, 0.10);
+  --bg-card-hover: rgba(0, 0, 0, 0.07);
+  --text-primary: #1a1a2e;
+  --text-muted: rgba(0, 0, 0, 0.5);
+  --text-faint: rgba(0, 0, 0, 0.4);
+  --text-dim: rgba(0, 0, 0, 0.45);
+  --text-soft: rgba(0, 0, 0, 0.6);
+  --text-body: rgba(0, 0, 0, 0.75);
+  --accent: #0284c7;
+  --accent-hover: #0369a1;
+  --shadow: rgba(0, 0, 0, 0.10);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
+  --gallery-bg: rgba(0, 0, 0, 0.08);
+  --gallery-placeholder-bg: rgba(0, 0, 0, 0.06);
+  --border-header: rgba(0, 0, 0, 0.1);
+  --border-footer: rgba(0, 0, 0, 0.1);
+  --bg-selected-card: rgba(2, 132, 199, 0.12);
+}
+
+/* ─── Base Reset ─── */
 * {
   margin: 0;
   padding: 0;

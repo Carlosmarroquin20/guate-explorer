@@ -1,22 +1,18 @@
 import { useState } from 'react';
 import Map from './components/Map/Map';
 import Sidebar from './components/Sidebar/Sidebar';
+import { ThemeProvider } from './context/ThemeContext';
 import places from './data/places.json';
 import type { Place } from './types';
 import './App.css';
 
 const typedPlaces = places as Place[];
 
-function App() {
+function AppContent() {
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
 
-  const handlePlaceSelect = (place: Place) => {
-    setSelectedPlace(place);
-  };
-
-  const handlePlaceDeselect = () => {
-    setSelectedPlace(null);
-  };
+  const handlePlaceSelect = (place: Place) => setSelectedPlace(place);
+  const handlePlaceDeselect = () => setSelectedPlace(null);
 
   return (
     <div className="app">
@@ -37,4 +33,10 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}

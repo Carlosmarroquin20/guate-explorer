@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--gallery-bg);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -37,7 +37,7 @@
   width: 32px;
   height: 32px;
   border: 3px solid rgba(255, 255, 255, 0.2);
-  border-top-color: #0ea5e9;
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -98,14 +98,14 @@
 .gallery-placeholder {
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--gallery-placeholder-bg);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin-top: 16px;
 }
@@ -125,9 +125,8 @@
 
 .gallery-caption {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   flex: 1;
-  line-clamp: 2;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -137,13 +136,13 @@
 .gallery-source-link {
   flex-shrink: 0;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-faint);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .gallery-source-link:hover {
-  color: #0ea5e9;
+  color: var(--accent);
 }
 
 .gallery-thumbnails {
@@ -171,7 +170,7 @@
 }
 
 .thumbnail.active {
-  border-color: #0ea5e9;
+  border-color: var(--accent);
   opacity: 1;
 }
 
@@ -191,6 +190,6 @@
 }
 
 .gallery-thumbnails::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--scrollbar-thumb);
   border-radius: 2px;
 }

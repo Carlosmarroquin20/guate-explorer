@@ -1,18 +1,27 @@
 .sidebar {
   width: 380px;
   height: 100vh;
-  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  background: var(--bg-sidebar);
   display: flex;
   flex-direction: column;
-  color: #fff;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  box-shadow: 4px 0 20px var(--shadow);
   z-index: 1000;
 }
 
 .sidebar-header {
-  padding: 24px;
-  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 24px;
+  background: var(--bg-sidebar-header);
+  border-bottom: 1px solid var(--border-header);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sidebar-header-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .sidebar-title {
@@ -29,9 +38,44 @@
 }
 
 .sidebar-subtitle {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
+}
+
+.sidebar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.control-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+.lang-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.05em;
 }
 
 .sidebar-content {
@@ -42,7 +86,7 @@
 
 .places-count {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-dim);
   margin-bottom: 16px;
   padding-left: 4px;
 }
@@ -62,8 +106,8 @@
   align-items: flex-start;
   gap: 14px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -73,14 +117,9 @@
 }
 
 .place-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
   transform: translateX(4px);
-}
-
-.place-card.selected {
-  background: rgba(14, 165, 233, 0.2);
-  border-color: #0ea5e9;
 }
 
 .place-icon {
@@ -103,18 +142,18 @@
   font-size: 1rem;
   font-weight: 600;
   margin: 0 0 4px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .place-meta {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-dim);
   margin: 0 0 8px;
 }
 
 .place-description {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-soft);
   margin: 0;
   line-height: 1.4;
   display: -webkit-box;
@@ -127,8 +166,8 @@
   padding: 16px 24px;
   text-align: center;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-faint);
+  border-top: 1px solid var(--border-footer);
 }
 
 /* Scrollbar styling */
@@ -141,12 +180,12 @@
 }
 
 .sidebar-content::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--scrollbar-thumb);
   border-radius: 3px;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Place Detail View */
@@ -168,7 +207,7 @@
 .back-button {
   background: none;
   border: none;
-  color: #0ea5e9;
+  color: var(--accent);
   font-size: 0.9rem;
   cursor: pointer;
   padding: 8px 0;
@@ -178,7 +217,7 @@
 }
 
 .back-button:hover {
-  color: #38bdf8;
+  color: var(--accent-hover);
 }
 
 .detail-header {
@@ -203,12 +242,12 @@
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0 0 4px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .detail-location {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -229,7 +268,7 @@
 
 .detail-description {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-body);
   line-height: 1.6;
   margin: 0;
 }
