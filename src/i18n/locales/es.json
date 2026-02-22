@@ -1,9 +1,17 @@
 {
   "sidebar": {
     "subtitle": "Descubre las maravillas de Guatemala",
-    "placesCount": "{{count}} lugares para explorar",
+    "placesCount": "{{count}} lugares encontrados",
     "backToList": "← Volver a la lista",
-    "footer": "Hecho con ❤️ para Guatemala"
+    "footer": "Hecho con ❤️ para Guatemala",
+    "searchPlaceholder": "Buscar lugares o departamentos…",
+    "all": "Todos",
+    "noResults": "Sin resultados para tu búsqueda",
+    "addFavorite": "Agregar a favoritos",
+    "removeFavorite": "Quitar de favoritos"
+  },
+  "detail": {
+    "getDirections": "Cómo llegar"
   },
   "gallery": {
     "loading": "Cargando fotos…",

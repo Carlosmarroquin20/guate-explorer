@@ -1,9 +1,17 @@
 {
   "sidebar": {
     "subtitle": "Discover Guatemala's wonders",
-    "placesCount": "{{count}} places to explore",
+    "placesCount": "{{count}} places found",
     "backToList": "← Back to list",
-    "footer": "Made with ❤️ for Guatemala"
+    "footer": "Made with ❤️ for Guatemala",
+    "searchPlaceholder": "Search places or departments…",
+    "all": "All",
+    "noResults": "No results for your search",
+    "addFavorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites"
+  },
+  "detail": {
+    "getDirections": "Get directions"
   },
   "gallery": {
     "loading": "Loading photos…",
