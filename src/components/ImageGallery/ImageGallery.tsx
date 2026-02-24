@@ -18,6 +18,21 @@ export default function ImageGallery({ query }: ImageGalleryProps) {
     setImgLoading(true);
   }, [query]);
 
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        setImgLoading(true);
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        setImgLoading(true);
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [images.length]);
+
   const goToPrevious = () => {
     setImgLoading(true);
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));

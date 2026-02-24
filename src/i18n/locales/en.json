@@ -11,7 +11,9 @@
     "removeFavorite": "Remove from favorites"
   },
   "detail": {
-    "getDirections": "Get directions"
+    "getDirections": "Get directions",
+    "copyLink": "Copy link",
+    "linkCopied": "Copied!"
   },
   "gallery": {
     "loading": "Loading photos…",

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Category, Place } from '../../types';
 import { getCategoryColor, getCategoryIcon } from '../../utils/icons';
@@ -51,12 +52,20 @@ export default function Sidebar({
 }: SidebarProps) {
   const { t } = useTranslation();
   const { theme, toggleTheme } = useTheme();
+  const [copied, setCopied] = useState(false);
 
   const isFiltered = searchQuery !== '' || activeCategories.size > 0 || showFavoritesOnly;
 
   const mapsUrl = selectedPlace
     ? `https://www.google.com/maps/search/?api=1&query=${selectedPlace.coordinates.lat},${selectedPlace.coordinates.lng}`
     : '';
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(mapsUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
     <aside className="sidebar">
@@ -117,14 +126,23 @@ export default function Sidebar({
               <p className="detail-description">{selectedPlace.description}</p>
             </div>
 
-            <a
-              className="directions-btn"
-              href={mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              🗺️ {t('detail.getDirections')}
-            </a>
+            <div className="detail-actions">
+              <a
+                className="directions-btn"
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🗺️ {t('detail.getDirections')}
+              </a>
+              <button
+                className={`copy-link-btn ${copied ? 'copy-link-btn--copied' : ''}`}
+                onClick={handleCopyLink}
+                disabled={copied}
+              >
+                {copied ? `✓ ${t('detail.linkCopied')}` : `🔗 ${t('detail.copyLink')}`}
+              </button>
+            </div>
           </div>
         ) : (
           /* ── List view ── */

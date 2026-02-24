@@ -70,5 +70,149 @@
       "lat": 15.27,
       "lng": -89.04
     }
+  },
+  {
+    "id": "chichicastenango",
+    "name": "Chichicastenango",
+    "description": "Renowned for its vibrant Thursday and Sunday markets, one of the largest indigenous markets in Central America, rich in Mayan traditions.",
+    "category": "colonial",
+    "department": "Quiché",
+    "wikimediaQuery": "Chichicastenango market Guatemala",
+    "coordinates": {
+      "lat": 15.117,
+      "lng": -91.117
+    }
+  },
+  {
+    "id": "pacaya",
+    "name": "Volcán Pacaya",
+    "description": "One of Guatemala's most active volcanoes. Visitors can hike close to lava flows and walk on hardened lava fields near Guatemala City.",
+    "category": "volcano",
+    "department": "Escuintla",
+    "wikimediaQuery": "Volcan Pacaya Guatemala lava",
+    "coordinates": {
+      "lat": 14.381,
+      "lng": -90.601
+    }
+  },
+  {
+    "id": "rio-dulce",
+    "name": "Río Dulce",
+    "description": "A stunning river gorge connecting Lake Izabal to the Caribbean coast, flanked by dense jungle, howler monkeys, and hot springs.",
+    "category": "nature",
+    "department": "Izabal",
+    "wikimediaQuery": "Rio Dulce river gorge Guatemala",
+    "coordinates": {
+      "lat": 15.664,
+      "lng": -89.025
+    }
+  },
+  {
+    "id": "livingston",
+    "name": "Livingston",
+    "description": "Unique Caribbean town accessible only by boat, home to the Garifuna community with their own language, music, and cuisine.",
+    "category": "beach",
+    "department": "Izabal",
+    "wikimediaQuery": "Livingston Guatemala Garifuna Caribbean",
+    "coordinates": {
+      "lat": 15.828,
+      "lng": -88.748
+    }
+  },
+  {
+    "id": "flores",
+    "name": "Flores",
+    "description": "Charming colonial island town in Lake Petén Itzá, gateway to Tikal and other northern Mayan sites. Connected to the mainland by a causeway.",
+    "category": "colonial",
+    "department": "Petén",
+    "wikimediaQuery": "Flores Peten island Guatemala",
+    "coordinates": {
+      "lat": 16.929,
+      "lng": -89.891
+    }
+  },
+  {
+    "id": "laguna-lachua",
+    "name": "Laguna Lachuá",
+    "description": "Nearly perfect circular lake hidden in a national park in northern Alta Verapaz, with crystal-clear turquoise water and pristine jungle.",
+    "category": "lake",
+    "department": "Alta Verapaz",
+    "wikimediaQuery": "Laguna Lachua Alta Verapaz Guatemala",
+    "coordinates": {
+      "lat": 15.926,
+      "lng": -90.672
+    }
+  },
+  {
+    "id": "santiaguito",
+    "name": "Volcán Santiaguito",
+    "description": "Active lava dome complex on the flank of Santa María volcano. One of the most continuously active volcanoes in the world, offering rare views of ongoing eruptions.",
+    "category": "volcano",
+    "department": "Quetzaltenango",
+    "wikimediaQuery": "Santiaguito volcano eruption Guatemala",
+    "coordinates": {
+      "lat": 14.756,
+      "lng": -91.552
+    }
+  },
+  {
+    "id": "quetzaltenango",
+    "name": "Quetzaltenango (Xela)",
+    "description": "Guatemala's second largest city, nestled in a highland valley. Known for its neoclassical architecture, vibrant indigenous culture, and language schools.",
+    "category": "colonial",
+    "department": "Quetzaltenango",
+    "wikimediaQuery": "Quetzaltenango Xela Guatemala city",
+    "coordinates": {
+      "lat": 14.845,
+      "lng": -91.518
+    }
+  },
+  {
+    "id": "grutas-lanquin",
+    "name": "Grutas de Lanquín",
+    "description": "Impressive cave system near the town of Lanquín in Alta Verapaz. At dusk, thousands of bats emerge from the cave in a spectacular natural show.",
+    "category": "cave",
+    "department": "Alta Verapaz",
+    "wikimediaQuery": "Lanquin caves bats Guatemala",
+    "coordinates": {
+      "lat": 15.567,
+      "lng": -89.975
+    }
+  },
+  {
+    "id": "el-mirador",
+    "name": "El Mirador",
+    "description": "Remote mega-site in the northern Petén jungle, home to La Danta — one of the largest pyramids by volume ever built. Accessible only by a multi-day hike.",
+    "category": "archaeological",
+    "department": "Petén",
+    "wikimediaQuery": "El Mirador pyramid Peten Guatemala",
+    "coordinates": {
+      "lat": 17.75,
+      "lng": -89.92
+    }
+  },
+  {
+    "id": "monterrico",
+    "name": "Monterrico",
+    "description": "Pacific black-sand beach and nature reserve, famous for sea turtle nesting season and its mangrove canal system.",
+    "category": "beach",
+    "department": "Santa Rosa",
+    "wikimediaQuery": "Monterrico beach Guatemala Pacific turtles",
+    "coordinates": {
+      "lat": 13.882,
+      "lng": -90.479
+    }
+  },
+  {
+    "id": "tajumulco",
+    "name": "Volcán Tajumulco",
+    "description": "At 4,220 m, the highest peak in Central America. A challenging two-day climb rewarded with panoramic views of Guatemala and Mexico.",
+    "category": "volcano",
+    "department": "San Marcos",
+    "wikimediaQuery": "Tajumulco volcano highest Central America Guatemala",
+    "coordinates": {
+      "lat": 15.037,
+      "lng": -91.903
+    }
   }
 ]

@@ -11,7 +11,9 @@
     "removeFavorite": "Quitar de favoritos"
   },
   "detail": {
-    "getDirections": "Cómo llegar"
+    "getDirections": "Cómo llegar",
+    "copyLink": "Copiar enlace",
+    "linkCopied": "¡Copiado!"
   },
   "gallery": {
     "loading": "Cargando fotos…",
