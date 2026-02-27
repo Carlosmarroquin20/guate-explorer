@@ -1,7 +1,9 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import Map from './components/Map/Map';
 import Sidebar from './components/Sidebar/Sidebar';
+import TourControls from './components/TourControls/TourControls';
 import { ThemeProvider } from './context/ThemeContext';
+import { useTour } from './hooks/useTour';
 import places from './data/places.json';
 import type { Category, Place } from './types';
 import './App.css';
@@ -101,6 +103,10 @@ function AppContent() {
     setShowFavoritesOnly(false);
   };
 
+  // ── Guided tour ───────────────────────────────────────────────────────────
+  const tour = useTour(filteredPlaces, setSelectedPlace);
+  // ─────────────────────────────────────────────────────────────────────────
+
   return (
     <div className="app">
       <Sidebar
@@ -127,6 +133,15 @@ function AppContent() {
           places={filteredPlaces}
           selectedPlace={selectedPlace}
           onPlaceSelect={setSelectedPlace}
+        />
+        <TourControls
+          active={tour.active}
+          index={tour.index}
+          total={tour.total}
+          currentPlace={selectedPlace}
+          onStart={tour.start}
+          onStop={tour.stop}
+          onNext={tour.next}
         />
       </main>
     </div>

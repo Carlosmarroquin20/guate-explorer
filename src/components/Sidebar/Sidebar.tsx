@@ -4,6 +4,7 @@ import type { Category, Place } from '../../types';
 import { getCategoryColor, getCategoryIcon } from '../../utils/icons';
 import { useTheme } from '../../context/ThemeContext';
 import ImageGallery from '../ImageGallery/ImageGallery';
+import PlaceChat from '../PlaceChat/PlaceChat';
 import i18n from '../../i18n';
 import './Sidebar.css';
 
@@ -173,6 +174,8 @@ export default function Sidebar({
                   {copied ? `✓ ${t('detail.linkCopied')}` : `🔗 ${t('detail.copyLink')}`}
                 </button>
               </div>
+
+              <PlaceChat place={selectedPlace} />
             </div>
           ) : (
             /* ── List view ── */

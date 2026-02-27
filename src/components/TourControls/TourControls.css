@@ -1,0 +1,134 @@
+/* ── Inactive: start button ── */
+.tour-start-btn {
+  position: absolute;
+  bottom: 28px;
+  right: 60px; /* offset from Leaflet's default zoom controls */
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  background: rgba(10, 10, 20, 0.80);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.tour-start-btn:hover {
+  background: rgba(30, 30, 55, 0.92);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.tour-start-icon {
+  font-size: 0.75rem;
+}
+
+/* ── Active: tour panel ── */
+.tour-panel {
+  position: absolute;
+  bottom: 28px;
+  right: 60px;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(10, 10, 20, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  animation: tourPanelIn 0.25s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+@keyframes tourPanelIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── SVG progress ring ── */
+.tour-ring-wrap {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.tour-counter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.02em;
+  pointer-events: none;
+}
+
+/* The arc drains over TOUR_INTERVAL_MS — key forces remount per place */
+.tour-progress-arc {
+  animation: tourDrain var(--tour-ms) linear forwards;
+}
+
+@keyframes tourDrain {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 87.96; } /* = 2π × 14, full circumference */
+}
+
+/* ── Current place label ── */
+.tour-place-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ── Control buttons ── */
+.tour-btns {
+  display: flex;
+  gap: 5px;
+}
+
+.tour-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.tour-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.1);
+}
+
+.tour-btn--stop {
+  background: rgba(239, 68, 68, 0.28);
+}
+
+.tour-btn--stop:hover {
+  background: rgba(239, 68, 68, 0.5);
+}
