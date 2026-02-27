@@ -22,5 +22,13 @@
     "nextImage": "Next image",
     "viewOnWikimedia": "View on Wikimedia Commons",
     "wikimediaLink": "© Wikimedia"
+  },
+  "chat": {
+    "title": "Ask the assistant",
+    "placeholder": "Ask something about this place…",
+    "send": "Send",
+    "welcome": "Hi! Ask me anything about {{name}}.",
+    "noKey": "Add a free Groq API key to your .env file to enable the AI assistant.",
+    "getKey": "Get your free API key"
   }
 }

@@ -22,5 +22,13 @@
     "nextImage": "Imagen siguiente",
     "viewOnWikimedia": "Ver en Wikimedia Commons",
     "wikimediaLink": "© Wikimedia"
+  },
+  "chat": {
+    "title": "Preguntar al asistente",
+    "placeholder": "Pregunta algo sobre este lugar…",
+    "send": "Enviar",
+    "welcome": "¡Hola! Pregúntame lo que quieras sobre {{name}}.",
+    "noKey": "Agrega una API key gratuita de Groq en tu archivo .env para activar el asistente.",
+    "getKey": "Obtén tu API key gratis"
   }
 }
