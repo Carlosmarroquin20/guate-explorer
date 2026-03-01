@@ -1,179 +1,229 @@
 # 🇬🇹 Guate Explorer
 
-> Discover the beauty, culture, and heritage of Guatemala at your fingertips
+> Discover the beauty, culture, and heritage of Guatemala — interactively.
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![CI](https://github.com/Carlosmarroquin20/guate-explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/Carlosmarroquin20/guate-explorer/actions/workflows/ci.yml)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20ES-success)](./src/i18n)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-## ✨ Overview
+---
 
-**Guate Explorer** is a modern, interactive web application that brings Guatemala's most iconic destinations, cultural landmarks, and natural wonders to life. Explore stunning imagery, interactive maps, and rich information about Guatemala's heritage—all in a sleek, responsive interface with dark mode support and multilingual support.
+**Guate Explorer** is an interactive travel guide for Guatemala built with React 19 and TypeScript. It combines an OpenStreetMap-powered map, a Wikimedia image gallery, a Groq-powered AI assistant, and a guided auto-tour — all in a polished, accessible interface with dark mode and English/Spanish support.
 
-### 🎯 Key Features
+![Guate Explorer screenshot](https://via.placeholder.com/1200x600/1e3a5f/ffffff?text=Guate+Explorer+—+screenshot+placeholder)
 
-- 🗺️ **Interactive Map** - Explore Guatemala's geography with an integrated map view
-- 🖼️ **Image Gallery** - Beautiful curated images from Wikimedia Commons
-- 📍 **Rich Location Data** - Comprehensive information about places, monuments, and landmarks
-- 🌙 **Dark Mode** - Eye-friendly interface with theme switching
-- 🌍 **Multilingual** - Full support for English and Spanish
-- ⚡ **Lightning Fast** - Built with Vite for instant page loads and HMR
-- 📱 **Fully Responsive** - Works flawlessly on desktop, tablet, and mobile
-- ♿ **Accessible** - Modern React patterns with accessibility best practices
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🗺️ **Interactive Map** | OpenStreetMap via React Leaflet — custom category icons, fly-to animation on place selection |
+| 🖼️ **Fullscreen Lightbox** | Click any gallery image to open a fullscreen viewer with keyboard navigation |
+| 🤖 **AI Assistant** | Groq-powered chat (llama-3.1-8b-instant) with SSE streaming, context-aware per place |
+| 🎬 **Guided Tour Mode** | Auto-flies through all places with an SVG progress-ring countdown |
+| 🔗 **URL Deep Linking** | Shareable URLs (`?place=tikal`) — browser back/forward works natively |
+| 🔍 **Search & Filter** | Real-time search by name/department + category chips + favorites |
+| ❤️ **Favorites** | Persist across sessions via `localStorage` |
+| 🌙 **Dark / Light Mode** | CSS custom properties, preference remembered |
+| 🌐 **i18n EN / ES** | Full UI translation via react-i18next, language preference persisted |
+| ⌨️ **Keyboard Navigation** | Arrow keys for gallery, Escape for lightbox |
+| 🎭 **Slide Transitions** | Directional slide animation between list and detail views |
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Node.js** 18.0 or higher
-- **npm** 9.0 or higher (or **yarn**/**pnpm**)
+- **Node.js** ≥ 18
+- **npm** ≥ 9
 
-### Installation
+### 1 — Clone & install
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/guate-explorer.git
-   cd guate-explorer
-   ```
+```bash
+git clone https://github.com/Carlosmarroquin20/guate-explorer.git
+cd guate-explorer
+npm install
+```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### 2 — Configure environment variables
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+```bash
+cp .env.example .env
+```
 
-4. **Open your browser**
-   Navigate to `http://localhost:5173` and start exploring!
+Edit `.env` and add your **free** Groq API key (no credit card required):
 
-## 📚 Project Structure
+```
+VITE_GROQ_API_KEY=your_groq_api_key_here
+```
+
+Get a free key at [console.groq.com/keys](https://console.groq.com/keys).
+The app works fully without a key — the AI chat section is simply disabled.
+
+### 3 — Run
+
+```bash
+npm run dev        # Start dev server → http://localhost:5173
+npm run build      # Type-check + production build → dist/
+npm run preview    # Serve the production build locally
+npm run lint       # Run ESLint
+```
+
+---
+
+## 🏗️ Architecture
+
+### Project structure
 
 ```
 guate-explorer/
+├── .github/
+│   └── workflows/
+│       └── ci.yml              # Type-check + lint + build on every push / PR
 ├── src/
-│   ├── components/          # React components
-│   │   ├── ImageGallery/    # Image gallery display component
-│   │   ├── Map/             # Interactive map component
-│   │   └── Sidebar/         # Navigation & info sidebar
-│   ├── context/             # React Context providers
-│   │   └── ThemeContext.tsx # Light/Dark mode management
-│   ├── data/                # Static data files
-│   │   └── places.json      # Guatemalan places & landmarks
-│   ├── hooks/               # Custom React hooks
-│   │   └── useWikimediaImages.ts # Fetch images from Wikimedia
-│   ├── i18n/                # Internationalization
+│   ├── components/
+│   │   ├── ImageGallery/       # Wikimedia image carousel + thumbnails
+│   │   ├── Lightbox/           # Fullscreen image modal (React Portal)
+│   │   ├── Map/                # React Leaflet map + fly-to controller
+│   │   ├── PlaceChat/          # AI chat UI (collapsible, per-place)
+│   │   ├── Sidebar/            # Search, filters, list, detail views
+│   │   └── TourControls/       # Floating tour start/stop/next panel
+│   ├── context/
+│   │   └── ThemeContext.tsx    # Light/dark mode via CSS custom properties
+│   ├── data/
+│   │   └── places.json         # 18 Guatemalan destinations (typed)
+│   ├── hooks/
+│   │   ├── useGroqChat.ts      # Groq SSE streaming + AbortController
+│   │   ├── useTour.ts          # Auto-tour interval logic
+│   │   └── useWikimediaImages.ts # Wikimedia Commons image fetching
+│   ├── i18n/
 │   │   ├── index.ts
-│   │   └── locales/         # Translation files
-│   │       ├── en.json      # English translations
-│   │       └── es.json      # Spanish translations
-│   ├── types/               # TypeScript type definitions
-│   ├── utils/               # Utility functions
-│   │   └── icons.ts         # Icon utilities
-│   ├── App.tsx              # Root component
-│   └── main.tsx             # Entry point
-├── public/                  # Static assets
-├── vite.config.ts           # Vite configuration
-├── tsconfig.json            # TypeScript configuration
-└── package.json             # Project dependencies
+│   │   └── locales/
+│   │       ├── en.json
+│   │       └── es.json
+│   ├── types/
+│   │   └── index.ts            # Place, Category, Department, PlaceImage
+│   └── utils/
+│       └── icons.ts            # Category → icon/color mapping
+├── .env.example                # Template for environment variables
+├── vite.config.ts
+├── tsconfig.app.json           # Strict TypeScript
+└── package.json
 ```
 
-## 🛠️ Available Scripts
+### Key design decisions
 
-```bash
-# Development - Start Vite dev server with HMR
-npm run dev
+- **No external state management** — all state lives in `AppContent` via `useState` + `useMemo`; props flow downward.
+- **URL as source of truth** — `selectedPlace` is synced to `?place=<id>` via `history.pushState` / `popstate`; `replaceState` on first render avoids duplicate history entries.
+- **Custom hooks own side effects** — `useGroqChat`, `useTour`, and `useWikimediaImages` each manage their own `AbortController` / `clearInterval` cleanup.
+- **CSS custom properties for theming** — zero JS overhead; toggling `data-theme` on `:root` switches the full palette.
+- **React Portal for Lightbox** — rendered directly into `document.body` to escape `overflow: hidden` stacking contexts.
 
-# Build - Create optimized production build
-npm run build
+---
 
-# Preview - Preview production build locally
-npm run preview
+## 🤖 AI Assistant — Groq
 
-# Lint - Run ESLint to check code quality
-npm run lint
-```
+The AI chat uses the [Groq API](https://groq.com) with **llama-3.1-8b-instant** — one of the fastest inference endpoints available. Responses stream in real-time via Server-Sent Events (SSE).
 
-## 🎨 Tech Stack
+**How it works:**
 
-| Technology | Purpose |
-|-----------|---------|
-| **React 18** | User interface library |
-| **TypeScript** | Type-safe JavaScript |
-| **Vite 5** | Next-generation build tool |
-| **React Router** | Client-side routing (ready for expansion) |
-| **Context API** | State management (themes, preferences) |
-| **Wikimedia API** | Image data sourcing |
-| **i18n** | Multilingual support |
-| **ESLint** | Code quality & consistency |
+1. When a place is opened, `PlaceChat` mounts with the place's name, category, department, and description pre-injected into the system prompt.
+2. The system prompt language matches the current i18n locale (EN/ES).
+3. Each user message streams back token-by-token using `ReadableStream` + `TextDecoder`.
+4. Changing the place aborts any in-flight request (`AbortController`) and resets the conversation.
+
+The feature degrades gracefully — if `VITE_GROQ_API_KEY` is not set, the UI shows a friendly setup message instead of an error.
+
+---
+
+## 🎬 Guided Tour
+
+Click **▶ Tour** (bottom-right of the map) to start an automated tour of all currently visible places.
+
+- The map flies to each place using Leaflet's `flyTo` animation.
+- An **SVG progress ring** drains over 7 seconds per place (CSS animation reset via React `key` trick).
+- The tour snapshots the `filteredPlaces` array at start time — changing filters mid-tour has no effect.
+- **⏭ Skip** / **⏹ Stop** controls are always visible during the tour.
+
+---
 
 ## 🌐 Internationalization
 
-Guate Explorer supports multiple languages out of the box:
+All UI strings are in `src/i18n/locales/`. To add a new language:
 
-- **English** (en)
-- **Spanish** (es)
+1. Create `src/i18n/locales/<code>.json` (copy `en.json` as a template).
+2. Register the locale in `src/i18n/index.ts`.
+3. The language switcher button in the header will cycle through available languages.
 
-Add more languages by creating new locale files in `src/i18n/locales/` and extending the language configuration.
+---
 
-## 🎭 Theme System
+## 📍 Adding New Places
 
-The app includes a sophisticated theme system powered by React Context:
+Places are defined in [`src/data/places.json`](src/data/places.json). Each entry follows this schema:
 
-- **Light Mode** - Clean, bright interface
-- **Dark Mode** - Comfortable for low-light environments
-- **Persistent** - Theme preference is remembered
+```jsonc
+{
+  "id": "unique-kebab-id",          // used in ?place= URL param
+  "name": "Display Name",
+  "description": "One paragraph description in English.",
+  "category": "archaeological",     // see Category type below
+  "department": "Petén",            // must match the Department union type
+  "wikimediaQuery": "search terms for Wikimedia Commons images",
+  "coordinates": {
+    "lat": 17.222,
+    "lng": -89.623
+  }
+}
+```
 
-Toggle themes using the built-in theme switcher in the UI.
+**Valid categories:** `archaeological` · `volcano` · `lake` · `nature` · `colonial` · `beach` · `cave`
 
-## 📦 Dependencies
+**Valid departments:** All 22 Guatemalan departments are listed in [`src/types/index.ts`](src/types/index.ts).
 
-Key dependencies include:
+> TypeScript will error at build time if an invalid category or department is used.
 
-- `react` - UI framework
-- `react-dom` - DOM rendering
-- `vite` - Build tool
-- `typescript` - Type safety
-- Custom hooks & utilities for extended functionality
+---
 
-See `package.json` for the complete list.
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| [React](https://react.dev) | 19 | UI framework |
+| [TypeScript](https://www.typescriptlang.org) | 5.9 | Type safety (strict mode) |
+| [Vite](https://vitejs.dev) | 7 | Build tool + dev server |
+| [React Leaflet](https://react-leaflet.js.org) | 5 | Interactive map (OpenStreetMap) |
+| [react-i18next](https://react.i18next.com) | 16 | Internationalization |
+| [Groq API](https://groq.com) | — | AI chat (free tier, llama-3.1-8b-instant) |
+| [Wikimedia Commons API](https://commons.wikimedia.org/wiki/API) | — | Place images |
+| ESLint + typescript-eslint | 9 / 8 | Linting |
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! To contribute:
+Contributions are very welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Quick summary:
 
-## 📝 License
+1. Fork the repo and create a branch: `git checkout -b feat/your-feature`
+2. Make your changes and ensure CI passes: `npm run lint && npm run build`
+3. Open a Pull Request with a clear description
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
-## 🙌 Acknowledgments
+## 📄 License
 
-- **Wikimedia Commons** for providing high-quality images
-- **The React Community** for amazing tools and libraries
-- Contributors and testers who help make Guate Explorer better
-
-## 📞 Contact & Support
-
-Have questions or suggestions? Feel free to:
-- Open an issue on GitHub
-- Reach out via email
-- Join our community discussions
+MIT — see [LICENSE](LICENSE).
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for Guatemala**
-
-*Explore. Discover. Connect.*
+**Made with ❤️ for Guatemala** · *Explore. Discover. Connect.*
 
 </div>

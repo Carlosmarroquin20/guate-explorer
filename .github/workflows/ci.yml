@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel in-progress runs on the same branch when a new push arrives
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: Type-check · Lint · Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Node.js setup with npm cache ────────────────────────────────────
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # ── 3. Install dependencies (clean install, respects package-lock.json) ─
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 4. TypeScript type-check ───────────────────────────────────────────
+      - name: TypeScript type-check
+        run: npx tsc -b
+
+      # ── 5. ESLint ──────────────────────────────────────────────────────────
+      - name: Lint
+        run: npm run lint
+
+      # ── 6. Production build ────────────────────────────────────────────────
+      # VITE_GROQ_API_KEY is optional — the app builds without it.
+      # To enable the AI feature in deployments, add the secret in:
+      # GitHub → Settings → Secrets and variables → Actions
+      - name: Build
+        run: npx vite build
+        env:
+          VITE_GROQ_API_KEY: ${{ secrets.VITE_GROQ_API_KEY }}
+
+      # ── 7. Upload build artifact (available for 7 days) ────────────────────
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
