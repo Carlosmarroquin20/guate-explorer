@@ -30,15 +30,12 @@ export function useTour(
    */
   const tourPlaces = useRef<Place[]>([]);
 
-  /**
-   * Keep a stable ref to the callback so the interval closure
-   * never captures a stale version.
-   */
-  const onChangeRef = useRef(onPlaceChange);
-  onChangeRef.current = onPlaceChange;
-
   const stop = useCallback(() => setActive(false), []);
 
+  /**
+   * onPlaceChange is setSelectedPlace from App, which React guarantees is
+   * referentially stable — safe to include in deps without causing re-creation.
+   */
   const advance = useCallback(() => {
     setIndex((prev) => {
       const next = prev + 1;
@@ -46,10 +43,10 @@ export function useTour(
         setActive(false);
         return prev;
       }
-      onChangeRef.current(tourPlaces.current[next]);
+      onPlaceChange(tourPlaces.current[next]);
       return next;
     });
-  }, []);
+  }, [onPlaceChange]);
 
   const start = useCallback(() => {
     if (places.length === 0) return;
@@ -57,8 +54,8 @@ export function useTour(
     setTotal(places.length);
     setIndex(0);
     setActive(true);
-    onChangeRef.current(places[0]);
-  }, [places]);
+    onPlaceChange(places[0]);
+  }, [places, onPlaceChange]);
 
   const next = useCallback(() => advance(), [advance]);
 

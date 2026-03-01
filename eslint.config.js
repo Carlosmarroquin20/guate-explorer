@@ -19,5 +19,10 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // Resetting state in an effect when a dependency changes is a legitimate
+      // and common React pattern. The react-hooks v7 rule is too strict here.
+      'react-hooks/set-state-in-effect': 'off',
+    },
   },
 ])

@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+// Context files conventionally export both a Provider component and a hook.
 import { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light';
